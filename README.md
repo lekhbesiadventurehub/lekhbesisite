@@ -1,6 +1,6 @@
-# Lekhbesi Travels & Tours
+# Lekhbesi Adventure Hub
 
-A minimal one-page website for a travel and tours company operating within Nepal: popular trips and treks, vehicle hire with driver (Scorpio, Toyota Hiace and bus), group packages for companies and schools, and contact details.
+A one-page website for Lekhbesi Adventure Hub, a licensed travel agency at Sangit Chowk, Itahari: its services (tours, air tickets, vehicle hire and trekking), popular trips and treks, vehicle hire with driver (Scorpio, Toyota Hiace and bus), group packages for companies and schools, and contact details with a map of the office.
 
 ## Built With
 
@@ -23,11 +23,17 @@ npm run preview   # serve the production build
 
 All content lives in `src/constants/index.js`:
 
-- **`contact`:** phone and WhatsApp (+977 9851231795), email (lekhbesiadventurehub@gmail.com) and office address. Anything set to `null` is hidden. Every "Enquire" and "Book now" button opens WhatsApp with a ready-made message about that trip or vehicle, and a floating WhatsApp button sits in the corner. Without WhatsApp they fall back to email, then phone.
-- **`trips`:** the trip cards. Copy an entry to add a trip; `type` is `'jeep'`, `'trek'` or `'custom'`, and the icon can be any [Lucide icon](https://lucide.dev/icons/).
+- **`contact`:** phone and WhatsApp (+977 985-2076345), email (lekhbesiadventurehub@gmail.com), Instagram handle, office address, and the office's Google Maps link and coordinates (used for the embedded map and the "Get directions" button). Anything set to `null` is hidden. Every "Enquire" and "Book now" button opens WhatsApp with a ready-made message about that trip or vehicle, and a floating WhatsApp button sits in the corner. Without WhatsApp they fall back to email, then phone.
+- **`serviceAreas`** and **`credentials`:** the towns listed beside the map, and the tourism license and company registration numbers shown in the hero and footer.
+- **`services`:** the four service cards. A card links to a section of the page (`hash`) or opens an enquiry (`enquiry`).
+- **`trips`:** the trip cards. Copy an entry to add a trip; `type` is `'tour'`, `'jeep'`, `'trek'` or `'custom'`, and the icon can be any [Lucide icon](https://lucide.dev/icons/).
 - **`vehicles`**, **`packages`** and **`reasons`:** the vehicle hire, group package and "Why us" sections.
 
-The crimson brand color is set in `tailwind.config.js` (`brand`).
+## Branding
+
+The colors come from the logo and are set in `tailwind.config.js`: `brand` is the blue (#2d6799, with a deep navy `brand-ink` for dark panels) and `accent` is the sun yellow (#ffc000). The yellow is too light for text on white, so it is used for fills and buttons with navy text.
+
+The logo files are `src/assets/logo.webp` (hero) and `src/assets/logo-sm.webp` (header and footer), with `favicon.png` and `apple-touch-icon.png` next to `index.html`. They were made from the original logo artwork, with the white outside the round badge made transparent.
 
 ## Contact Form
 

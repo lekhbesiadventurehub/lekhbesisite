@@ -2,7 +2,8 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 import { contact } from '../constants';
 import { phoneLink, whatsappLink } from '../utils/enquiry';
 import ContactForm from './ContactForm';
-import { WhatsAppIcon } from './Icons';
+import { InstagramIcon, WhatsAppIcon } from './Icons';
+import OfficeMap from './OfficeMap';
 import SectionHeading from './SectionHeading';
 import { buttonVariants } from './ui/button';
 import IconTile from './ui/IconTile';
@@ -28,11 +29,24 @@ const DETAILS = [
     value: contact.email && contact.email.replace('@', '​@'),
     href: contact.email && `mailto:${contact.email}`,
   },
-  { label: 'Office', icon: MapPin, value: contact.address },
+  {
+    label: 'Instagram',
+    icon: InstagramIcon,
+    value: contact.instagram && `@${contact.instagram}`,
+    href: contact.instagram && `https://www.instagram.com/${contact.instagram}/`,
+    external: true,
+  },
+  {
+    label: 'Office',
+    icon: MapPin,
+    value: contact.address,
+    href: contact.mapLink,
+    external: true,
+  },
 ].filter(({ value }) => value);
 
 const Contact = () => (
-  <section id="contact" className="border-t border-neutral-200 bg-neutral-50 py-20 sm:py-24">
+  <section id="contact" className="bg-neutral-50 py-20 sm:py-24">
     <div className="container">
       <SectionHeading
         eyebrow="Get in touch"
@@ -41,17 +55,17 @@ const Contact = () => (
         description="Tell us where you want to go, when, and how many of you are travelling. We'll come back with a plan and a price."
       />
       <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-2">
-        <div className="flex min-w-0 flex-col rounded-2xl bg-neutral-900 p-6 text-white sm:p-8">
+        <div className="bg-brand-ink flex min-w-0 flex-col rounded-2xl p-6 text-white sm:p-8">
           <h3 className="text-2xl font-semibold tracking-tight">Ready to travel?</h3>
-          <p className="mt-3 text-sm leading-relaxed text-neutral-300">
+          <p className="mt-3 text-sm leading-relaxed text-white/70">
             Call or WhatsApp us for a quick reply, or send a message and we’ll get back to you.
           </p>
           <ul className="mt-8 space-y-5">
             {DETAILS.map(({ label, icon, value, href, external }) => (
               <li key={label} className="flex items-center gap-4">
-                <IconTile icon={icon} className="size-11 bg-white/10 text-white" />
+                <IconTile icon={icon} className="text-accent size-11 bg-white/10" />
                 <div className="min-w-0">
-                  <p className="text-xs font-medium uppercase tracking-wider text-neutral-400">
+                  <p className="text-xs font-medium uppercase tracking-wider text-white/60">
                     {label}
                   </p>
                   {href ? (
@@ -59,7 +73,7 @@ const Contact = () => (
                       href={href}
                       target={external ? '_blank' : undefined}
                       rel={external ? 'noopener noreferrer' : undefined}
-                      className="text-sm font-semibold transition-colors [overflow-wrap:anywhere] hover:text-red-300 sm:text-base">
+                      className="hover:text-accent text-sm font-semibold transition-colors [overflow-wrap:anywhere] sm:text-base">
                       {value}
                     </a>
                   ) : (
@@ -81,7 +95,7 @@ const Contact = () => (
                 </a>
               )}
               {contact.phone && (
-                <a href={phoneLink()} className={buttonVariants({ variant: 'light' })}>
+                <a href={phoneLink()} className={buttonVariants({ variant: 'accent' })}>
                   <Phone className="size-4" aria-hidden="true" /> Call us
                 </a>
               )}
@@ -89,6 +103,11 @@ const Contact = () => (
           )}
         </div>
         {contact.email && <ContactForm />}
+        {contact.address && contact.mapCoordinates && (
+          <div className="lg:col-span-2">
+            <OfficeMap />
+          </div>
+        )}
       </div>
     </div>
   </section>

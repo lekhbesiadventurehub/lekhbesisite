@@ -22,10 +22,10 @@ const Header = () => {
         className="bg-brand fixed left-4 top-4 z-50 -translate-y-20 rounded px-4 py-2 text-sm font-medium text-white transition-transform focus:translate-y-0">
         Skip to main content
       </a>
-      <div className="container flex h-16 items-center justify-between gap-6">
+      <div className="container flex h-[4.5rem] items-center justify-between gap-6">
         <Logo />
         <nav aria-label="Main navigation" className="hidden lg:block">
-          <ul className="flex gap-8 text-sm text-neutral-600">
+          <ul className="flex gap-7 text-sm text-neutral-600">
             {navLinks.map(({ name, hash }) => (
               <li key={name}>
                 <a href={hash} className="hover:text-brand transition-colors">
@@ -37,7 +37,11 @@ const Header = () => {
         </nav>
         <a
           href="#contact"
-          className={buttonVariants({ size: 'sm', className: 'hidden lg:inline-flex' })}>
+          className={buttonVariants({
+            variant: 'accent',
+            size: 'sm',
+            className: 'hidden lg:inline-flex',
+          })}>
           Enquire now
         </a>
         <button

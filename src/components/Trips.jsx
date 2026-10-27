@@ -1,4 +1,4 @@
-import { CalendarDays, CarFront, Footprints, MapPin, Sparkles } from 'lucide-react';
+import { CalendarDays, CarFront, Compass, Footprints, MapPin, Sparkles } from 'lucide-react';
 import { trips } from '../constants';
 import { cn } from '../utils/cn';
 import EnquireLink from './EnquireLink';
@@ -6,6 +6,7 @@ import SectionHeading from './SectionHeading';
 import IconTile from './ui/IconTile';
 
 const TYPES = {
+  tour: { label: 'Tour', icon: Compass },
   jeep: { label: 'Jeep tour', icon: CarFront },
   trek: { label: 'Trek', icon: Footprints },
   custom: { label: 'Tailor-made', icon: Sparkles },
@@ -68,13 +69,13 @@ const TripCard = ({ trip }) => {
 };
 
 const Trips = () => (
-  <section id="trips" className="border-b border-neutral-200 bg-neutral-50 py-20 sm:py-24">
+  <section id="trips" className="py-20 sm:py-24">
     <div className="container">
       <SectionHeading
         eyebrow="Trips & treks"
         title="Popular"
         accent="trips"
-        description="From the dry valleys of Mustang to the blue waters of Rara, our most-loved routes. Every trip can be tailored to your dates and group."
+        description="From the tea gardens of Ilam to the dry valleys of Mustang, these are our most-loved routes. Every trip can be tailored to your dates and group."
       />
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {trips.map((trip) => (

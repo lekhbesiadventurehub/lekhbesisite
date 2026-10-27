@@ -1,15 +1,21 @@
 import {
-  BadgePercent,
+  BadgeCheck,
+  Bird,
   Building2,
   Bus,
   CarFront,
-  MapPinned,
+  Footprints,
+  Headset,
+  Leaf,
+  MapIcon,
   Mountain,
   MountainSnow,
+  PlaneTakeoff,
   Route,
   School,
   ShieldCheck,
   Signpost,
+  Sunrise,
   Tent,
   Van,
   Waves,
@@ -19,21 +25,34 @@ import {
 
 export const company = {
   name: 'Lekhbesi',
-  tagline: 'Travels & Tours',
-  fullName: 'Lekhbesi Travels & Tours',
+  tagline: 'Adventure Hub',
+  fullName: 'Lekhbesi Adventure Hub',
+  slogan: 'One call. One team. Complete travel, from roads to peaks.',
 };
 
 // Anything set to null is hidden from the contact section. Every "Enquire" button opens
 // WhatsApp with a ready-made message (or email, then phone, if WhatsApp is null), and the
 // contact form delivers messages to `email` (see README).
 export const contact = {
-  phone: '+977 9851231795',
-  whatsapp: '9779851231795', // digits only, with the country code
+  phone: '+977 985-2076345',
+  whatsapp: '9779852076345', // digits only, with the country code
   email: 'lekhbesiadventurehub@gmail.com',
-  address: null, // TODO: add the office address, e.g. 'Kathmandu, Nepal'
+  instagram: 'lekhbesi_adventure_hub', // the handle, without the @
+  address: 'Sangit Chowk, Itahari 56705, Sunsari',
+  // The office pin on Google Maps, and its latitude and longitude for the embedded map.
+  mapLink: 'https://maps.app.goo.gl/kQfbScepM6uvxjwb6',
+  mapCoordinates: '26.6635939,87.2758318',
 };
 
+export const serviceAreas = ['Itahari', 'Biratnagar', 'Dharan', 'Dhankuta', 'Jhapa'];
+
+export const credentials = [
+  { label: 'Tourism License', value: '03/82/83' },
+  { label: 'Company Registration', value: '393103' },
+];
+
 export const navLinks = [
+  { name: 'Services', hash: '#services' },
   { name: 'Trips', hash: '#trips' },
   { name: 'Vehicle Hire', hash: '#vehicles' },
   { name: 'Group Packages', hash: '#packages' },
@@ -41,8 +60,74 @@ export const navLinks = [
   { name: 'Contact', hash: '#contact' },
 ];
 
-// `type`: 'jeep', 'trek' or 'custom'. `duration` is a typical length; adjust to match your itineraries.
+// A card links to `hash` on the page, or opens an enquiry about `enquiry` if there is no hash.
+export const services = [
+  {
+    title: 'Tours',
+    icon: MapIcon,
+    description:
+      'From the serene tea gardens of Ilam to the sacred temples of Kathmandu, from the wildlife of Koshi Tappu to the spiritual heights of Pathibhara.',
+    cta: 'See our tours',
+    hash: '#trips',
+  },
+  {
+    title: 'Air Tickets',
+    icon: PlaneTakeoff,
+    description:
+      'No long queues, no confusion. Just fast, reliable ticketing from a team that knows travel inside out.',
+    cta: 'Book a ticket',
+    enquiry: 'booking air tickets',
+  },
+  {
+    title: 'Vehicle Hiring',
+    icon: CarFront,
+    description:
+      "Whether you need a quick ride across town or a full road trip through the hills, we've got the right vehicle for your journey.",
+    cta: 'See our vehicles',
+    hash: '#vehicles',
+  },
+  {
+    title: 'Trekking',
+    icon: Footprints,
+    description:
+      "We don't just walk the trail. We make the whole journey meaningful, safe and unforgettable.",
+    cta: 'See our treks',
+    hash: '#trips',
+  },
+];
+
+// `type`: 'tour', 'jeep', 'trek' or 'custom'. `duration` is a typical length; adjust to match your itineraries.
 export const trips = [
+  {
+    title: 'Ilam',
+    type: 'tour',
+    location: 'Ilam, Koshi',
+    duration: '2 days',
+    icon: Leaf,
+    description:
+      'Rolling tea gardens, misty hills and sunrise views towards Kanchenjunga, a short drive from Itahari.',
+    highlights: ['Kanyam', 'Antu Danda', 'Mai Pokhari'],
+  },
+  {
+    title: 'Pathibhara',
+    type: 'tour',
+    location: 'Taplejung, Koshi',
+    duration: '3 days',
+    icon: Sunrise,
+    description:
+      'A pilgrimage to Pathibhara Devi, one of the most revered temples in Nepal, high on a ridge facing Kanchenjunga.',
+    highlights: ['Phungling', 'Pathibhara Devi Temple', '3,794 m'],
+  },
+  {
+    title: 'Koshi Tappu',
+    type: 'tour',
+    location: 'Sunsari, Koshi',
+    duration: '1 day',
+    icon: Bird,
+    description:
+      'Wetlands and grasslands along the Sapta Koshi, home to wild water buffalo and hundreds of bird species.',
+    highlights: ['Wild water buffalo', 'Birdwatching', 'Koshi Barrage'],
+  },
   {
     title: 'Mustang',
     type: 'jeep',
@@ -98,7 +183,7 @@ export const trips = [
     type: 'custom',
     icon: Route,
     description:
-      'Somewhere else in Nepal in mind? Tell us where, when and who is coming, and we will plan the route, the vehicle and the stays.',
+      'Somewhere else in mind? Tell us where, when and who is coming, and we will plan the route, the tickets, the vehicle and the stays.',
   },
 ];
 
@@ -153,10 +238,15 @@ export const packageIncludes = [
 
 export const reasons = [
   {
-    title: 'Nepal only',
-    icon: MapPinned,
+    title: 'Licensed & registered',
+    icon: BadgeCheck,
     description:
-      "We don't sell trips abroad. Nepal is all we do, so we know its roads, seasons and stays.",
+      "A licensed travel agency and registered company, so you know exactly who you're travelling with.",
+  },
+  {
+    title: 'One call, one team',
+    icon: Headset,
+    description: 'Tickets, vehicles, hotels and guides, all arranged by the same people.',
   },
   {
     title: 'Drivers who know the roads',
@@ -164,13 +254,8 @@ export const reasons = [
     description: 'Experienced drivers for highways and rough mountain tracks alike.',
   },
   {
-    title: 'Fair prices',
-    icon: BadgePercent,
-    description: 'Honest quotes, with good rates for corporate and school groups.',
-  },
-  {
     title: 'Trips your way',
     icon: Route,
-    description: 'Every itinerary planned around your dates, group size and budget.',
+    description: 'Every itinerary planned around your dates, group size and budget, at a fair price.',
   },
 ];

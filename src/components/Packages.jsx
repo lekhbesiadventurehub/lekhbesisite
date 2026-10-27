@@ -5,7 +5,7 @@ import SectionHeading from './SectionHeading';
 import IconTile from './ui/IconTile';
 
 const Packages = () => (
-  <section id="packages" className="border-y border-neutral-200 bg-neutral-50 py-20 sm:py-24">
+  <section id="packages" className="py-20 sm:py-24">
     <div className="container">
       <SectionHeading
         eyebrow="Group packages"

@@ -5,6 +5,7 @@ import {
   Header,
   Hero,
   Packages,
+  Services,
   Trips,
   Vehicles,
   WhatsAppButton,
@@ -16,6 +17,7 @@ const App = () => (
     <Header />
     <main id="main-content">
       <Hero />
+      <Services />
       <Trips />
       <Vehicles />
       <Packages />

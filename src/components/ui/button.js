@@ -5,6 +5,7 @@ const base =
 
 const variants = {
   brand: 'bg-brand text-white hover:bg-brand-dark',
+  accent: 'bg-accent text-brand-ink hover:bg-accent-dark',
   outline: 'border border-neutral-300 bg-white text-neutral-900 hover:border-neutral-900',
   whatsapp: 'bg-green-700 text-white hover:bg-green-800',
   light: 'bg-white text-neutral-900 hover:bg-neutral-100',

@@ -65,13 +65,13 @@ const inputClass =
 
 const Field = ({ id, label, optional, error, children }) => (
   <div>
-    <label htmlFor={id} className={cn('text-sm font-medium', error && 'text-brand')}>
+    <label htmlFor={id} className={cn('text-sm font-medium', error && 'text-red-600')}>
       {label}
       {optional && <span className="font-normal text-neutral-400"> (optional)</span>}
     </label>
     {children}
     {error && (
-      <p id={`${id}-error`} role="alert" className="text-brand mt-1 text-sm">
+      <p id={`${id}-error`} role="alert" className="mt-1 text-sm text-red-600">
         {error}
       </p>
     )}
@@ -174,7 +174,7 @@ const ContactForm = ({ className }) => {
             placeholder="Your full name"
             value={values.name}
             onChange={handleChange}
-            className={cn(inputClass, errors.name && 'border-brand')}
+            className={cn(inputClass, errors.name && 'border-red-600')}
             {...describe('name')}
           />
         </Field>
@@ -187,7 +187,7 @@ const ContactForm = ({ className }) => {
             placeholder="98XXXXXXXX"
             value={values.phone}
             onChange={handleChange}
-            className={cn(inputClass, errors.phone && 'border-brand')}
+            className={cn(inputClass, errors.phone && 'border-red-600')}
             {...describe('phone')}
           />
         </Field>
@@ -201,7 +201,7 @@ const ContactForm = ({ className }) => {
           placeholder="you@example.com"
           value={values.email}
           onChange={handleChange}
-          className={cn(inputClass, errors.email && 'border-brand')}
+          className={cn(inputClass, errors.email && 'border-red-600')}
           {...describe('email')}
         />
       </Field>
@@ -212,7 +212,7 @@ const ContactForm = ({ className }) => {
           placeholder="Where would you like to go, when, and how many people?"
           value={values.message}
           onChange={handleChange}
-          className={cn(inputClass, 'h-36 resize-none', errors.message && 'border-brand')}
+          className={cn(inputClass, 'h-36 resize-none', errors.message && 'border-red-600')}
           {...describe('message')}
         />
       </Field>
