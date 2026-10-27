@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-white text-neutral-900 antialiased;
+  }
+
+  /* Keep section headings clear of the sticky header when jumping to them. */
+  section[id] {
+    scroll-margin-top: 4rem;
+  }
+
+  :focus-visible {
+    @apply ring-brand outline-none ring-2 ring-offset-2;
+  }
+}
